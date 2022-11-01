@@ -32,4 +32,6 @@ export default abstract class Integrante {
 
     public getRol(): string { return this.rol; }
     public setRol(rol: string): void { this.rol = rol; }
+
+    abstract guardar(): string;
 }

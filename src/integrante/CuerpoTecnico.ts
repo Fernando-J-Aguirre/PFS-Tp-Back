@@ -10,4 +10,10 @@ export default class CuerpoTecnico extends Integrante {
 
     public isCapitan(): boolean { return this.capitan; }
     public setCapitan(capitan: boolean): void { this.capitan = capitan; }
+
+    public guardar(): string {
+        let datos: string;
+        datos = `${super.getCredencial()},${super.getApellidoNombres()},${super.getFechaNacimiento()},${super.getPaisNacimiento()},${super.getDeporte()},${super.getRol()},${this.isCapitan().toString()}`;
+        return datos;
+    }
 }

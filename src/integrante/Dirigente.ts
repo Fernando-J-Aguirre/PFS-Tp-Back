@@ -16,4 +16,10 @@ export default class Dirigente extends Integrante {
     public isJefe(): boolean { return this.jefe; }
     public setJefe(jefe: boolean): void { this.jefe = jefe; }
 
+    public guardar(): string {
+        let datos: string;
+        datos = `${super.getCredencial()},${super.getApellidoNombres()},${super.getFechaNacimiento()},${super.getPaisNacimiento()},${super.getDeporte()},${super.getRol()},${this.isJefe().toString()}`;
+        return datos;
+    }
+
 }
