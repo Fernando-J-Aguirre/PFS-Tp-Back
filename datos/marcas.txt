@@ -1,0 +1,4 @@
+Goles,17
+Habilitaciones,5
+Remates,13
+Bloqueos,6

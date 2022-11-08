@@ -9,12 +9,14 @@ import { DelegacionController } from './delegacion/delegacion.controller';
 import { DelegacionService } from './delegacion/delegacion.service';
 import { TorneoController } from './torneo/torneo.controller';
 import { TorneoService } from './torneo/torneo.service';
+import { MarcaController } from './marca/marca.controller';
+import { MarcaService } from './marca/marca.service';
 
 @Module({
   imports: [
     ServeStaticModule.forRoot({ rootPath: join(__dirname, '..', 'client') })
   ],
-  controllers: [AppController, IntegranteController, DelegacionController, TorneoController],
-  providers: [AppService, IntegranteService, DelegacionService, TorneoService],
+  controllers: [AppController, IntegranteController, DelegacionController, TorneoController, MarcaController],
+  providers: [AppService, IntegranteService, DelegacionService, TorneoService, MarcaService],
 })
 export class AppModule {}

@@ -1,0 +1,6 @@
+F00,Lopez Gustavo,25/10/1999,Argentina,Futbol,delantero,false,Goles-Habilitaciones
+F01,Perez Roberto,12/05/1979,Argentina,Futbol,Director Tecnico,false
+T01,Alvarez Patricio,24/07/1981,Argentina,Tenis,Dirigente,12345,false
+V01,Gimenez Mariela,09/01/2004,Argentina,Voley,Central,true,Remates-Bloqueos
+
+

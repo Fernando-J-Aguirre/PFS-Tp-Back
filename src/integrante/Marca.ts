@@ -13,4 +13,10 @@ export default class Marca {
     public getValor(): string { return this.valor; }
     public setValor(valor: string): void { this.valor = valor; }
 
+    public guardar(): string {
+        let datos: string;
+        datos = `${this.nombre},${this.valor}`;
+        return datos;
+    }
+
 }
