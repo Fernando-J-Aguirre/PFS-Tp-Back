@@ -62,21 +62,23 @@ export default class Torneo {
         }
     }
 
-    // public updParticipantes(delegacion: Delegacion): string {
-    //     try {
-    //         if (delegacion) {
-    //             for (let i = 0; i < this.participantes.length; i++) {
-    //                 if ((delegacion.getDeporte() == this.participantes[i].getDeporte()) && (delegacion.getPais() == this.participantes[i].getPais()))
-    //                     this.participantes[i] = delegacion;
-    //                 return `ok`;
-    //             }
-    //         } else {
-    //             throw new Error('No hay datos para actualizar delegacion');
-    //         }
-    //     } catch (error) {
-    //         return error.message;
-    //     }
-    // }
+    public updParticipantes(delegacion: Delegacion): string {
+        try {
+            if (delegacion) {
+                for (let i = 0; i < this.participantes.length; i++) {
+                    if ((delegacion.getDeporte() == this.participantes[i].getDeporte()) && (delegacion.getPais() == this.participantes[i].getPais()))
+                        this.participantes[i] = delegacion;
+                    return `ok`;
+                }
+                throw new Error('La delegacion no se encuentra para actualizar')
+            } else {
+                throw new Error('No hay datos para actualizar delegacion');
+            }
+        } catch (error) {
+            return error.message;
+        }
+    }
+
 
     public guardar(): string {
         let delegacion: string = '';

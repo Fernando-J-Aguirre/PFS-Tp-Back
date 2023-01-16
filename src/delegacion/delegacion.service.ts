@@ -18,9 +18,9 @@ export class DelegacionService {
         return this.delegaciones;
     }
 
-    public getDelegacion(pais: string): Delegacion {
+    public getDelegacion(pais: string, deporte: string): Delegacion {
         for (let i = 0; i < this.delegaciones.length; i++) {
-            if (this.delegaciones[i].getPais() == pais) {
+            if (this.delegaciones[i].getPais() == pais && this.delegaciones[i].getDeporte() == deporte) {
                 return this.delegaciones[i];
             }
         }
@@ -29,23 +29,45 @@ export class DelegacionService {
 
     public addDelegacion(datos: any): string {
         try {
-            let delegacion: Delegacion;
-            this.loadDelegaciones(); //carga las delegaciones existentes
             if (datos) {
-                for (let i = 0; i < this.delegaciones.length; i++) {
-                    if ((this.delegaciones[i].getPais() == datos.pais) && (this.delegaciones[i].getDeporte() == datos.deporte)) {
-                        throw new Error('La delegacion ya se encuentra')
-                    }
+                this.loadDelegaciones();
+                let delegacionExiste = this.getDelegacion(datos.pais, datos.deporte);
+                if(delegacionExiste) {
+                    throw new Error('La delegacion ya se encuentra')
                 }
-                delegacion = new Delegacion(datos.pais, datos.deporte);
+                let delegacion = new Delegacion(datos.pais, datos.deporte);
                 this.delegaciones.push(delegacion);
-                this.saveDelegaciones(); //guarda las delegaciones
+                this.saveDelegaciones();
                 return 'Delegacion agregada correctamente';
+            } else {
+                throw new Error('No hay datos para agregar nueva delegacion');
             }
         } catch (error) {
             return error.message;
         }
     }
+
+    public updateDelegacion(datos: any): string {
+        try {
+            if (datos) {
+                let delegacion = this.delegaciones.find(del => del.getPais() === datos.pais && del.getDeporte() === datos.deporte);               
+                    if(delegacion){
+                        delegacion.setPais(datos.nuevoPais);
+                        delegacion.setDeporte(datos.nuevoDeporte);
+                        this.saveDelegaciones();
+                        this.loadDelegaciones();
+                        return 'ok';
+                    }else{
+                        throw new Error('La delegacion no existe')
+                    }
+            } else {
+                throw new Error('No hay datos para actualizar la delegacion')
+            }
+        } catch (error) {
+            return error.message;
+        }
+    }
+    
 
 
     private loadDelegaciones() {
