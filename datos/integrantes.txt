@@ -1,0 +1,7 @@
+deportista,F00,Lopez Gustavo,25/10/1999,Argentina,Futbol,delantero,false,Goles-Habilitaciones
+cuerpo tecnico,F01,Perez Roberto,12/05/1979,Argentina,Futbol,Director Tecnico,true
+dirigente,T01,Alvarez Patricio,24/07/1981,Argentina,Tenis,Dirigente,false
+deportista,V01,Gimenez Mariela,09/01/2004,Argentina,Voley,Central,true,Remates-Bloqueos
+cuerpo tecnico,T02,Garcia Pablo,21/02/1985,Argentina,Tenis,DT,false
+cuerpo tecnico,T03,Aguirre Juan,15/03/1975,Argentina,Tenis,Ayudante,false
+deportista,F03,RICARDO RUBEN,18/08/2005,Argentina,Futbol,Defensor,true,Pases cortados-Centros rechazados
