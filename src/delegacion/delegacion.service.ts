@@ -10,7 +10,7 @@ export class DelegacionService {
     private integranteService: IntegranteService;
 
     constructor() {
-        this.integranteService = new IntegranteService();
+        this.integranteService;
         this.loadDelegaciones();
     }
 
@@ -68,6 +68,26 @@ export class DelegacionService {
         }
     }
     
+    public delDelegacion(pais: string, deporte: string): string {
+        try {
+            if (pais && deporte) {
+                for (let i = 0; i < this.delegaciones.length; i++) {
+                    if ((pais == this.delegaciones[i].getPais()) && (deporte == this.delegaciones[i].getDeporte())) {
+                        this.delegaciones.splice(i, 1);
+                        this.saveDelegaciones();
+                        this.loadDelegaciones();
+                        return 'ok';
+                    }
+                }
+                throw new Error('La delegacion no se encuentra para eliminar');
+            } else {
+                throw new Error('No hay datos para eliminar la delegacion');
+            }
+        } catch (error) {
+            return error.message;
+        }
+    }
+
 
 
     private loadDelegaciones() {
